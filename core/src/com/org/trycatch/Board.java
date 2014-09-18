@@ -10,9 +10,9 @@ import com.badlogic.gdx.utils.Array;
 import com.org.objects.Ball;
 
 public class Board {
-	private static final Vector2 NULL_GRAVITY = new Vector2(0.1f,0);
+	private static final Vector2 NULL_GRAVITY = new Vector2(0,0);
 	
-	World world;
+	private World world;
 	
 	public Board(float width, float height){
 		world = new World(NULL_GRAVITY, true);
