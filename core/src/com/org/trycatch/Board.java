@@ -37,11 +37,11 @@ public class Board {
 		for(Body b:bodies){
 			Texture texture = (Texture)b.getUserData();
 			Vector2 position = b.getPosition();
+			b.applyForce(new Vector2(10*Gdx.input.getAccelerometerY(), -10*Gdx.input.getAccelerometerX()), position, true);
 			batch.draw(texture, position.x, position.y);
 			//TODO need to draw those walls
 		}
 		batch.end();
 		world.step(1, 1, 1);
-		world.setGravity(new Vector2(Gdx.input.getAccelerometerY(), -Gdx.input.getAccelerometerX()));
 	}
 }

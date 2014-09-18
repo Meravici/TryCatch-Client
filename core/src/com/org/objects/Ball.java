@@ -24,7 +24,7 @@ public class Ball {
 	public Ball(Texture texture){
 		def = new BodyDef();
 		def.type = BodyType.DynamicBody;
-		def.position.set(10, 10);
+		def.position.set(100, 100);
 	
 		CircleShape cs = new CircleShape();
 		cs.setRadius(0.1f);
