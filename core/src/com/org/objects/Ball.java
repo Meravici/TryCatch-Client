@@ -1,6 +1,7 @@
 package com.org.objects;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
@@ -21,20 +22,19 @@ public class Ball {
 	 * @param body physical representation of body in {@link Box2DBuild} world
 	 * @param texture 
 	 */
-	public Ball(Texture texture){
+	public Ball(Texture texture, float x, float y){
 		def = new BodyDef();
 		def.type = BodyType.DynamicBody;
-		def.position.set(100, 100);
-	
+		def.position.set(x, y);
+		def.awake = true;
 		CircleShape cs = new CircleShape();
-		cs.setRadius(0.1f);
+		cs.setRadius(10f);
 		
 		fd = new FixtureDef();
 		
 		fd.shape = cs;
-		fd.density = 0.5f;
+		fd.density = 10f;
 		fd.friction = 0.3f;        
-		fd.restitution = 0.5f;
 		
 		this.texture = texture;
 	}
@@ -43,6 +43,10 @@ public class Ball {
 		this.body = world.createBody(def);
 		body.createFixture(fd);
 		body.setUserData(texture);
+	}
+	
+	public void applyForce(Vector2 force, Vector2 point, boolean wake){
+		body.applyForce(force, point, wake);
 	}
 	
 }
