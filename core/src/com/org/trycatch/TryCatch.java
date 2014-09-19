@@ -8,6 +8,9 @@ public class TryCatch extends Game {
 	
 	@Override
 	public void create() {
+		
+		
+		
 		Screen screen = new GameScreen();
 		setScreen(screen);
 	}

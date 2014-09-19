@@ -1,6 +1,7 @@
 package com.org.objects;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
@@ -9,7 +10,7 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.physics.box2d.utils.Box2DBuild;
 
-public class Wall {
+public class Wall implements TCObject{
 	Body body;
 	Texture texture;
 	BodyDef def;
@@ -39,7 +40,13 @@ public class Wall {
 	public void createBody(World world){
 		this.body = world.createBody(def);
 		body.createFixture(fd);
-		body.setUserData(texture);
+		body.setUserData(this);
+	}
+
+	@Override
+	public void draw(SpriteBatch batch) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

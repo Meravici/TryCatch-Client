@@ -1,6 +1,7 @@
 package com.org.objects;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -10,11 +11,12 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.physics.box2d.utils.Box2DBuild;
 
-public class Ball {
+public class Ball implements TCObject {
 	Body body;
 	Texture texture;
 	BodyDef def;
 	FixtureDef fd;
+	
 	
 	
 	/**
@@ -33,8 +35,9 @@ public class Ball {
 		fd = new FixtureDef();
 		
 		fd.shape = cs;
-		fd.density = 10f;
-		fd.friction = 0.3f;        
+		fd.density = 100f;
+		fd.friction = 0.1f;
+		fd.restitution = 1f;
 		
 		this.texture = texture;
 	}
@@ -42,11 +45,15 @@ public class Ball {
 	public void createBody(World world){
 		this.body = world.createBody(def);
 		body.createFixture(fd);
-		body.setUserData(texture);
+		body.setUserData(this);
 	}
 	
-	public void applyForce(Vector2 force, Vector2 point, boolean wake){
-		body.applyForce(force, point, wake);
+	public void applyForce(Vector2 force){
+		body.applyForce(force, body.getWorldCenter(), true);
+	}
+	
+	public void draw(SpriteBatch batch){
+		
 	}
 	
 }
