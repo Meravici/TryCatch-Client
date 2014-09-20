@@ -1,6 +1,7 @@
 package com.org.trycatch;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
@@ -11,15 +12,20 @@ import com.badlogic.gdx.utils.Array;
 import com.org.objects.Ball;
 import com.org.objects.TCObject;
 import com.org.objects.Wall;
+import com.org.trycatchAPI.GoogleInterface;
 
-public class Board {
+public class Board implements InputProcessor {
 	private static final Vector2 NULL_GRAVITY = new Vector2(0,0);
-	Ball ball;
-	World world;
 	
-	public Board(float width, float height){
+	private GoogleInterface gIterface;
+	private Ball ball;
+	private World world;
+	
+	public Board(float width, float height, GoogleInterface gInterface){
+		this.gIterface = gInterface;
 		world = new World(NULL_GRAVITY, true);
 		addWalls(width, height);
+		Gdx.input.setInputProcessor(this);
 		ball = new Ball(null, 300,350); //TODO add texture
 		addBalls(ball);
 	}
@@ -62,5 +68,62 @@ public class Board {
 		batch.end();
 		ball.applyForce(new Vector2(100*Gdx.input.getAccelerometerY(), -100*Gdx.input.getAccelerometerX()));
 		world.step(1,1,1);
+	}
+
+
+	@Override
+	public boolean keyDown(int keycode) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public boolean keyUp(int keycode) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public boolean keyTyped(char character) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+		gIterface.getScores();
+		System.out.println("touched");
+		return true;
+	}
+
+
+	@Override
+	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public boolean touchDragged(int screenX, int screenY, int pointer) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public boolean mouseMoved(int screenX, int screenY) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	@Override
+	public boolean scrolled(int amount) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

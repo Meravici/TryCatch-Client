@@ -29,6 +29,7 @@ public class Ball implements TCObject {
 		def.type = BodyType.DynamicBody;
 		def.position.set(x, y);
 		def.awake = true;
+		
 		CircleShape cs = new CircleShape();
 		cs.setRadius(10f);
 		
@@ -46,6 +47,7 @@ public class Ball implements TCObject {
 		this.body = world.createBody(def);
 		body.createFixture(fd);
 		body.setUserData(this);
+		
 	}
 	
 	public void applyForce(Vector2 force){

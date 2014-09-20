@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.org.objects.Ball;
 import com.org.trycatch.Board;
+import com.org.trycatchAPI.GoogleInterface;
 
 public class GameScreen implements Screen {
 	private SpriteBatch batch;
@@ -16,14 +17,16 @@ public class GameScreen implements Screen {
 	private Board board;
 	private Box2DDebugRenderer rend;
 	private OrthographicCamera cam;
+	private GoogleInterface gIterface;
 	
-	public GameScreen(){
+	public GameScreen(GoogleInterface gInterface){
 		super();
+		this.gIterface = gInterface;
 		cam = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		batch = new SpriteBatch();
 		rend = new Box2DDebugRenderer();
 		ball = new Texture("ball.png");
-		board = new Board(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		board = new Board(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), gInterface);
 		board.addBalls(new Ball(ball,50,50));		
 	}
 	@Override
