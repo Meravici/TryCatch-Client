@@ -13,8 +13,8 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 public class GameScreen implements Screen {
 	// this is actually my tablet resolution in landscape mode. I'm using it for
 	// making the GUI pixel-exact.
-	public static int SCREEN_WIDTH = 500;
-	public static int SCREEN_HEIGHT = 500;
+	private static int SCREEN_WIDTH = 500;
+	private static int SCREEN_HEIGHT = 500;
 
 	private GameWorld world; // contains the game world's bodies and actors.
 	private GameRenderer renderer; // our custom game renderer.
@@ -29,7 +29,7 @@ public class GameScreen implements Screen {
 	public final void show() {
 		stage = new Stage(new FitViewport(SCREEN_WIDTH, SCREEN_HEIGHT));
 
-		world = new GameWorld(assetManager);
+		world = new GameWorld(SCREEN_WIDTH, SCREEN_HEIGHT, assetManager);
 		renderer = new GameRenderer(world);
 		
 		// add GUI actors to stage, labels, meters, buttons etc.

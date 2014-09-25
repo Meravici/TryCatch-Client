@@ -9,18 +9,18 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.Fixture;
+import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Scaling;
-import com.steps.screens.GameWorld;
 
 public class Ball extends Image {  
 	   
     public static final float RADIUS = 0.8f; // bob is a ball with 0.8m diameter      
     public final Body body; // bob's box2d body  
       
-    public Ball(GameWorld world, AssetManager assetManager) {  
+    public Ball(World world, AssetManager assetManager) {  
           
         // bob is an Image, so we load the graphics from the assetmanager  
         Texture tex = assetManager.get("ball.png", Texture.class);  
@@ -37,7 +37,7 @@ public class Ball extends Image {
 //        bodyDef.linearDamping = 0.1f;  
 //        bodyDef.angularDamping = 0.5f;  
           
-        this.body = world.box2dWorld.createBody(bodyDef);  
+        this.body = world.createBody(bodyDef);  
 //        this.body.setUserData(ElementType.BOB);  
           
         Fixture fix = body.createFixture(circle, 50);  

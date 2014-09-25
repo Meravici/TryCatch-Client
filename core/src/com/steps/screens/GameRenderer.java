@@ -12,7 +12,7 @@ public class GameRenderer {
 	}
 
 	public void render() {
-		renderer.render(world.box2dWorld, world.stage.getCamera().combined);
-		world.stage.draw();
+		renderer.render(world.getBox2dWorld(), world.getStage().getCamera().combined);
+		world.getStage().draw();
 	}
 }
