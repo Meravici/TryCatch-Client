@@ -14,7 +14,7 @@ public class GameWorld {
 
 	private final Stage stage;	// stage containing game actors (not GUI, but actual game elements)
 	private World box2dWorld; // box2d world
-	private Actor ball; // our playing character
+//	private Actor ball; // our playing character
 //	private AssetManager assetManager;
 
 	public GameWorld(float width, float height, AssetManager assetManager) {
@@ -25,9 +25,16 @@ public class GameWorld {
 		box2dWorld = new World(GRAVITY, true);
 		stage = new Stage(new FitViewport(UNIT_WIDTH, UNIT_HEIGHT));
 
-		ball = new Ball(box2dWorld, assetManager);
+		for(int i=0; i<10; i++){
+			stage.addActor(new Ball(box2dWorld, assetManager, (float)Math.random()*UNIT_WIDTH, (float)Math.random()*UNIT_HEIGHT));
+		}
+		
+		for(int i=0; i<10; i++){
+			stage.addActor(new Wall(box2dWorld, assetManager, (float)Math.random()*UNIT_WIDTH, (float)Math.random()*UNIT_HEIGHT, (float)Math.random()*UNIT_WIDTH, (float)Math.random()*UNIT_HEIGHT));
+		}
+//		ball = new Ball(box2dWorld, assetManager);
 
-		stage.addActor(ball);
+//		stage.addActor(ball);
 
 	}
 

@@ -67,6 +67,7 @@ public class LoadingScreen implements Screen {
 		System.out.println("Current Screen: Loading");
 		// TODO Auto-generated method stub
 		assetManager.load("ball.png", Texture.class);
+		assetManager.load("wall.png", Texture.class);
 		assetManager.load("uiskin.json", Skin.class);
 
 	}
