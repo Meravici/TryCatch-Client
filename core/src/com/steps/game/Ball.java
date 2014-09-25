@@ -1,4 +1,4 @@
-package com.steps.actors;
+package com.steps.game;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;

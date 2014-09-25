@@ -1,4 +1,4 @@
-package com.steps.screens;
+package com.steps.game;
 
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 

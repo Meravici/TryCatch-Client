@@ -1,4 +1,4 @@
-package com.steps.screens;
+package com.steps.game;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.math.Vector2;
@@ -6,7 +6,6 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.steps.actors.Ball;
 
 public class GameWorld {
 	private final float UNIT_WIDTH; // 6.4 meters
