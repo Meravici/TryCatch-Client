@@ -30,6 +30,7 @@ public class LoadingScreen implements Screen {
 		this.font = new BitmapFont();
 		font.setScale(2);
 		font.setColor(Color.BLACK);
+
 	}
 
 	@Override
@@ -40,15 +41,16 @@ public class LoadingScreen implements Screen {
 			Gdx.gl.glClearColor(210 / 255f, 210 / 255f, 210 / 255f, 1);
 			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 			batch.begin();
-			batch.draw(splash, Gdx.graphics.getWidth() / 2 - splash.getWidth() / 2, Gdx.graphics.getHeight() / 2 - splash.getHeight() / 2);
-			
+			batch.draw(splash, Gdx.graphics.getWidth() / 2 - splash.getWidth()
+					/ 2, Gdx.graphics.getHeight() / 2 - splash.getHeight() / 2);
 			int progress = (int) (assetManager.getProgress() * 100);
 			String text = "Loading " + progress + "%";
 			TextBounds fontBounds = font.getBounds(text);
 			float fontWidth = fontBounds.width;
 			float fontHeight = fontBounds.height;
-			
-			font.draw(batch, text, Gdx.graphics.getWidth() / 2 - fontWidth / 2, Gdx.graphics.getHeight() - fontHeight * 2);
+			font.draw(batch, text, Gdx.graphics.getWidth() / 2 - fontWidth / 2,
+					Gdx.graphics.getHeight() / 2 - fontHeight / 2);
+			// TODO Draw progressbar
 
 			batch.end();
 		}

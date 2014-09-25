@@ -14,8 +14,8 @@ public class MenuScreen implements Screen {
 
 	public MenuScreen(Game myGame, AssetManager assetManager) {
 //		this.myGame = myGame;
-		
 		stage = new MenuStage(assetManager, myGame);
+		
 
 		Gdx.input.setInputProcessor(stage);
 	}

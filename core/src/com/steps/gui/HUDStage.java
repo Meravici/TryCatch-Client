@@ -8,7 +8,8 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class HUDStage extends Stage {
 
-	public HUDStage(Viewport fitViewport, AssetManager assetManager) {
+	public HUDStage(Viewport viewPort, AssetManager assetManager) {
+		super(viewPort);
 		// add GUI actors to stage, labels, meters, buttons etc.
 		Label labelStatus = new Label("TOUCH TO START", assetManager.get(
 				"uiskin.json", Skin.class));
@@ -17,7 +18,6 @@ public class HUDStage extends Stage {
 
 		this.addActor(labelStatus);
 		// add other GUI elements here
-
 	}
 
 }
