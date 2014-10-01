@@ -14,8 +14,8 @@ import com.steps.gui.HUDStage;
 public class GameScreen implements Screen {
 	// this is actually my tablet resolution in landscape mode. I'm using it for
 	// making the GUI pixel-exact.
-	private static int SCREEN_WIDTH = 500;
-	private static int SCREEN_HEIGHT = 500;
+	private static int SCREEN_WIDTH = 1280;
+	private static int SCREEN_HEIGHT = 720;
 
 	private GameWorld world; // contains the game world's bodies and actors.
 	private GameRenderer renderer; // our custom game renderer.
