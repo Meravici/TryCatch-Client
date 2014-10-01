@@ -39,7 +39,7 @@ public class Ball extends Image {
           
         this.body = world.createBody(bodyDef);  
 //        this.body.setUserData(ElementType.BOB);  
-          
+          System.out.println(body.getPosition().x+";"+body.getPosition().y);
         Fixture fix = body.createFixture(circle, 50);  
         fix.setDensity(1);  
         fix.setFriction(1f);  
@@ -47,8 +47,7 @@ public class Ball extends Image {
           
         circle.dispose();  
           
-//        // generate bob's actor  
-        System.out.println(body.getPosition().x);
+        // generate bob's actor  
         this.setPosition(body.getPosition().x-RADIUS, body.getPosition().y-RADIUS); // set the actor position at the box2d body position  
         this.setSize(RADIUS*2, RADIUS*2); // scale actor to body's size  
         this.setScaling(Scaling.stretch); // stretch the texture  
