@@ -1,6 +1,5 @@
 package com.nadzvi.game;
 
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
@@ -14,6 +13,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Scaling;
+import com.nadzvi.data.Assets;
 
 public class Wall extends Image {  
 	   
@@ -21,12 +21,12 @@ public class Wall extends Image {
     private final Body body; // bob's box2d body  
     private float width;
     private float height;
-    public Wall(World world, AssetManager assetManager, float x, float y, float width, float height) {  
+    public Wall(World world, float x, float y, float width, float height) {  
           
     	this.width = width;
     	this.height = height;
         // bob is an Image, so we load the graphics from the assetmanager  
-        Texture tex = assetManager.get("wall.png", Texture.class);  
+        Texture tex = Assets.getWall();  
         this.setDrawable(new TextureRegionDrawable(new TextureRegion(tex)));
         this.setBounds(0, 0, width, height);  
         // generate bob's box2d body  

@@ -1,9 +1,7 @@
 package com.nadzvi.screens;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.nadzvi.gui.MenuStage;
@@ -12,9 +10,9 @@ public class MenuScreen implements Screen {
 //	private Game myGame;
 	private Stage stage;
 
-	public MenuScreen(Game myGame, AssetManager assetManager) {
-//		this.myGame = myGame;
-		stage = new MenuStage(assetManager, myGame);
+	public MenuScreen() {
+//		
+		stage = new MenuStage();
 		
 
 		Gdx.input.setInputProcessor(stage);

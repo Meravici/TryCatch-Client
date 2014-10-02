@@ -1,9 +1,7 @@
 package com.nadzvi.screens;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -20,17 +18,12 @@ public class GameScreen implements Screen {
 	private GravityTestWorld world; // contains the game world's bodies and actors.
 	private GravityTestRenderer renderer; // our custom game renderer.
 	private Stage HUD; // stage that holds the GUI. Pixel-exact size.
-	private AssetManager assetManager;
-
-	public GameScreen(Game myGame, AssetManager assetManager) {
-		this.assetManager = assetManager;
-	}
 
 	@Override
 	public final void show() {
-		HUD = new HUDStage(new FitViewport(SCREEN_WIDTH, SCREEN_HEIGHT), assetManager);
+		HUD = new HUDStage(new FitViewport(SCREEN_WIDTH, SCREEN_HEIGHT));
 
-		world = new GravityTestWorld(SCREEN_WIDTH, SCREEN_HEIGHT, assetManager);
+		world = new GravityTestWorld(SCREEN_WIDTH, SCREEN_HEIGHT);
 		renderer = new GravityTestRenderer(world);
 		
 		

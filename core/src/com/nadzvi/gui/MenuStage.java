@@ -1,21 +1,20 @@
 package com.nadzvi.gui;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.nadzvi.data.Assets;
 import com.nadzvi.utils.ButtonCreator;
 
 public class MenuStage extends Stage {
 	Skin skin;
 	Stack stack;
-	public MenuStage(AssetManager assetManager, Game myGame){
-		skin = assetManager.get("uiskin.json", Skin.class);
+	public MenuStage(){
+		skin = Assets.getMenuSkin();
 		stack = new Stack();
 		stack.setWidth(Gdx.graphics.getWidth()*0.9f);
 		stack.setHeight(Gdx.graphics.getHeight()*0.9f);
