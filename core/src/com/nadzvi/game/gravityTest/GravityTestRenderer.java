@@ -1,12 +1,12 @@
-package com.nadzvi.game;
+package com.nadzvi.game.gravityTest;
 
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 
-public class GameRenderer {
-	GameWorld world;
+public class GravityTestRenderer {
+	GravityTestWorld world;
 	Box2DDebugRenderer renderer;
 
-	public GameRenderer(GameWorld world) {
+	public GravityTestRenderer(GravityTestWorld world) {
 		this.world = world;
 		this.renderer = new Box2DDebugRenderer();
 	}

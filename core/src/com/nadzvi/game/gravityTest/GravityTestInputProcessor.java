@@ -1,4 +1,4 @@
-package com.nadzvi.game;
+package com.nadzvi.game.gravityTest;
 
 
 
@@ -7,15 +7,16 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.nadzvi.game.Ball;
 import com.nadzvi.utils.Utils;
 
-public class GameInputProcessor implements InputProcessor {
+public class GravityTestInputProcessor implements InputProcessor {
 	private Stage stage;
 	private World world;
 	private AssetManager assetManager;
 	private float height; // 6.4 meters
 	
-	public GameInputProcessor(Stage stage, World world, AssetManager assetManager, float width, float height){
+	public GravityTestInputProcessor(Stage stage, World world, AssetManager assetManager, float width, float height){
 		this.height = height;
 		this.stage = stage;
 		this.world = world;

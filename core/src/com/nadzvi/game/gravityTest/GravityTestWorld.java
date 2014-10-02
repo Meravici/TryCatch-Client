@@ -1,4 +1,4 @@
-package com.nadzvi.game;
+package com.nadzvi.game.gravityTest;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
@@ -8,8 +8,10 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.nadzvi.game.BallFactory;
+import com.nadzvi.game.Wall;
 
-public class GameWorld {
+public class GravityTestWorld {
 	private final float UNIT_WIDTH; // 6.4 meters
 	private final float UNIT_HEIGHT;
 	public static final Vector2 GRAVITY = new Vector2(1f, 1f);
@@ -23,7 +25,7 @@ public class GameWorld {
 
 	private float BORDER_WIDTH = 0.5f;
 
-	public GameWorld(float width, float height, AssetManager assetManager) {
+	public GravityTestWorld(float width, float height, AssetManager assetManager) {
 		this.assetManager = assetManager;
 		UNIT_WIDTH = width / 30;
 		UNIT_HEIGHT = height / 30;
@@ -39,7 +41,7 @@ public class GameWorld {
 		ball = ballFactory.create();
 		
 		stage.addActor(ball);
-		InputProcessor processor = new GameInputProcessor(stage, box2dWorld, assetManager, UNIT_WIDTH, UNIT_HEIGHT);
+		InputProcessor processor = new GravityTestInputProcessor(stage, box2dWorld, assetManager, UNIT_WIDTH, UNIT_HEIGHT);
 		
 		Gdx.input.setInputProcessor(processor);
 
