@@ -1,9 +1,9 @@
-package com.steps.trycatch;
+package com.nadzvi.trycatch;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
-import com.steps.screens.SplashScreen;
+import com.nadzvi.screens.SplashScreen;
 
 
 public class TryCatch extends Game {

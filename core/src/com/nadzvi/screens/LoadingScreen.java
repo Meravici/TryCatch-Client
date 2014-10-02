@@ -1,4 +1,4 @@
-package com.steps.screens;
+package com.nadzvi.screens;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;

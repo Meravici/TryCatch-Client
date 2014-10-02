@@ -1,4 +1,4 @@
-package com.steps.utils;
+package com.nadzvi.utils;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;

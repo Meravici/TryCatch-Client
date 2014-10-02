@@ -1,4 +1,4 @@
-package com.steps.gui;
+package com.nadzvi.gui;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -9,7 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Stack;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.steps.utils.ButtonCreator;
+import com.nadzvi.utils.ButtonCreator;
 
 public class MenuStage extends Stage {
 	Skin skin;

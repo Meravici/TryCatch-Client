@@ -1,4 +1,4 @@
-package com.steps.screens;
+package com.nadzvi.screens;
 
 public class SettingsScreen {
 

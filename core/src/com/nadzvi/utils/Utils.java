@@ -1,4 +1,4 @@
-package com.steps.utils;
+package com.nadzvi.utils;
 
 public class Utils {
 	public static int generatRandomPositiveNegitiveValue(int max , int min) {

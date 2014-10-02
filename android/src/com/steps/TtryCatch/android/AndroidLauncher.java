@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
-import com.steps.trycatch.TryCatch;
+import com.nadzvi.trycatch.TryCatch;
 
 public class AndroidLauncher extends AndroidApplication {
 	@Override

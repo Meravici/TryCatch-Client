@@ -1,4 +1,4 @@
-package com.steps.gui;
+package com.nadzvi.gui;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.scenes.scene2d.Stage;
