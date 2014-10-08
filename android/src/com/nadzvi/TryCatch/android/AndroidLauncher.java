@@ -1,10 +1,10 @@
-package com.steps.TtryCatch.android;
+package com.nadzvi.TryCatch.android;
 
 import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
-import com.nadzvi.trycatch.TryCatch;
+import com.nadzvi.TryCatch.TryCatch;
 
 public class AndroidLauncher extends AndroidApplication {
 	@Override

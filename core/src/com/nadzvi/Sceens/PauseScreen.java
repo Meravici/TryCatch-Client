@@ -1,8 +1,15 @@
-package com.nadzvi.screens;
+package com.nadzvi.Sceens;
 
 import com.badlogic.gdx.Screen;
+import com.nadzvi.Utilities.AssetsAPI;
 
 public class PauseScreen implements Screen {
+    private AssetsAPI assets;
+
+    public PauseScreen(AssetsAPI assets){
+        this.assets = assets;
+
+    }
 
 	@Override
 	public void render(float delta) {

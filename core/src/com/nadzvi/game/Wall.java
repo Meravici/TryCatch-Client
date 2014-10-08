@@ -1,4 +1,4 @@
-package com.nadzvi.game;
+package com.nadzvi.Game;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -13,20 +13,16 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Scaling;
-import com.nadzvi.data.Assets;
+import com.nadzvi.Utilities.AssetsAPI;
 
-public class Wall extends Image {  
+public class Wall extends PhysicalActor {
 	   
-//    public static final float RADIUS = 0.8f; // bob is a ball with 0.8m diameter      
-    private final Body body; // bob's box2d body  
-    private float width;
-    private float height;
-    public Wall(World world, float x, float y, float width, float height) {  
+    public Wall(World world, float x, float y, float width, float height, AssetsAPI assets) {
           
     	this.width = width;
     	this.height = height;
-        // bob is an Image, so we load the graphics from the assetmanager  
-        Texture tex = Assets.getWall();  
+        // bob is an Image, so we load the graphics from the asset manager
+        Texture tex = assets.getWallTexture();
         this.setDrawable(new TextureRegionDrawable(new TextureRegion(tex)));
         this.setBounds(0, 0, width, height);  
         // generate bob's box2d body  
@@ -36,15 +32,12 @@ public class Wall extends Image {
         
         BodyDef bodyDef = new BodyDef();  
         bodyDef.type = BodyType.StaticBody;  
-        bodyDef.position.x = x;  
-        bodyDef.position.y = y;  
-//        bodyDef.linearDamping = 0.1f;  
-//        bodyDef.angularDamping = 0.5f;  
+        bodyDef.position.set(x, y);
           
         this.body = world.createBody(bodyDef);  
-//        this.body.setUserData(ElementType.BOB);  
-          
+         
         Fixture fix = body.createFixture(rect, 50);  
+        
         fix.setDensity(1);  
         fix.setFriction(1f);  
         fix.setRestitution(0.8f);  
@@ -52,7 +45,6 @@ public class Wall extends Image {
         rect.dispose();  
           
         // generate bob's actor  
-//        System.out.println(body.getPosition().x);
         this.setPosition(body.getPosition().x-width/2, body.getPosition().y-height/2); // set the actor position at the box2d body position  
         this.setSize(width, height); // scale actor to body's size  
         this.setScaling(Scaling.stretch); // stretch the texture  

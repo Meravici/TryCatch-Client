@@ -1,48 +1,48 @@
-package com.nadzvi.data;
+package com.nadzvi.Utilities;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.nadzvi.Utilities.AssetsAPI;
 
-public class Assets {
-	public static AssetManager assetManager = new AssetManager();
-    public static Skin menuSkin;
-    public static Texture ball;
-    public static Texture wall;
-    
+public class TryCatchAssets implements AssetsAPI {
+	public AssetManager assetManager;
+
+    public TryCatchAssets(){
+        this.assetManager = new AssetManager();
+    }
 
     // In here we'll put everything that needs to be loaded in this format:
     // manager.load("file location in assets", fileType.class);
     // 
     // libGDX AssetManager currently supports: Pixmap, Texture, BitmapFont,
     //     TextureAtlas, TiledAtlas, TiledMapRenderer, Music and Sound.
-    public static void queueLoading() {
+    public void queueLoading() {
     	assetManager.load("ball.png", Texture.class);
 		assetManager.load("wall.png", Texture.class);
 		assetManager.load("uiskin.json", Skin.class);
     }
 
     //In here we'll create our skin, so we only have to create it once.
-    public static Skin getMenuSkin() {
-        if (menuSkin == null)
-            menuSkin = assetManager.get("uiskin.json", Skin.class);
-        return menuSkin;
+    public Skin getMenuSkin() {
+        return assetManager.get("uiskin.json", Skin.class);
     }
     // This function gets called every render() and the AssetManager pauses the loading each frame
     // so we can still run menus and loading screens smoothly
-    public static boolean update() {
+    public boolean isFinished() {
         return assetManager.update();
     }
 
-	public static Texture getBall() {
-		if(ball == null)
-			ball = assetManager.get("ball.png", Texture.class);
-		return ball;
-	}
+    @Override
+    public float getProgress() {
+        return assetManager.getProgress();
+    }
 
-	public static Texture getWall() {
-		if(wall == null)
-			wall = assetManager.get("wall.png", Texture.class);
-		return null;
+    public Texture getBallTexture() {
+        return assetManager.get("ball.png", Texture.class);
+    }
+
+	public Texture getWallTexture() {
+	    return assetManager.get("wall.png", Texture.class);
 	}
 }

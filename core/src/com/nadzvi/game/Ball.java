@@ -1,31 +1,29 @@
-package com.nadzvi.game;
+package com.nadzvi.Game;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Scaling;
-import com.nadzvi.data.Assets;
+import com.nadzvi.Utilities.AssetsAPI;
 
-public class Ball extends Image {  
+public class Ball extends PhysicalActor {
 	public static enum State {
 		CATCH, RUN
 	} 
-    public static final float RADIUS = 0.8f; // bob is a ball with 0.8m diameter      
-    public final Body body; // bob's box2d body  
+    public static final float RADIUS = 0.8f; // bob is a ball with 0.8m diameter
+
       
-    public Ball(World world, float x, float y) {  
-          
-        // bob is an Image, so we load the graphics from the assetmanager  
-        Texture tex = Assets.getBall();  
+    public Ball(World world, float x, float y, AssetsAPI assets) {
+        this.width = RADIUS*2;
+        this.height = RADIUS*2;
+        // bob is an Image, so we load the graphics from the asset manager
+        Texture tex = assets.getBallTexture();
         this.setDrawable(new TextureRegionDrawable(new TextureRegion(tex)));
         this.setBounds(0, 0, tex.getWidth(), tex.getHeight());  
         // generate ball's box2d body  
@@ -34,8 +32,7 @@ public class Ball extends Image {
           
         BodyDef bodyDef = new BodyDef();  
         bodyDef.type = BodyType.DynamicBody;  
-        bodyDef.position.x = x;  
-        bodyDef.position.y = y;  
+        bodyDef.position.set(x, y);
         
         this.body = world.createBody(bodyDef);  
         Fixture fix = body.createFixture(circle, 50);  
@@ -52,12 +49,5 @@ public class Ball extends Image {
         this.setAlign(Align.center);  
     }  
       
-    @Override  
-    public void act(float delta) {  
-        // here we override Actor's act() method to make the actor follow the box2d body  
-        super.act(delta);  
-        setOrigin(RADIUS, RADIUS);  
-        setRotation(MathUtils.radiansToDegrees * body.getAngle());  
-        setPosition(body.getPosition().x-RADIUS, body.getPosition().y-RADIUS);  
-    }  
+     
 }  

@@ -1,27 +1,20 @@
-package com.nadzvi.game;
+package com.nadzvi.Game;
 
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.nadzvi.Game.Ball;
+import com.nadzvi.Utilities.AssetsAPI;
 
-public class BallFactory {
+public class BallFactory{
 	private World world;
-	private float width;
-	private float height;
-	
-	public Ball create(){
-		float x = width * (float)Math.random();
-		float y = height * (float)Math.random();
-		return new Ball(world, x, y);
-	}
-	
-	public BallFactory(World world, float width, float height) {
+	private AssetsAPI assets;
+	public BallFactory(World world, AssetsAPI assets) {
 		super();
 		this.world = world;
-		this.width = width;
-		this.height = height;
+        this.assets = assets;
 	}
 
-	public Actor create(float x, float y) {
-		return new Ball(world, x, y);
+	public Actor createActor(float x, float y) {
+		return new Ball(world, x, y, assets);
 	}
 }
