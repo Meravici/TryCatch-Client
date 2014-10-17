@@ -18,4 +18,8 @@ public abstract class PhysicalActor extends Image {
 		setRotation(MathUtils.radiansToDegrees * body.getAngle());
 		setPosition(body.getPosition().x - width / 2, body.getPosition().y - height / 2);
 	}
+
+    public Body getBody(){
+        return this.body;
+    }
 }

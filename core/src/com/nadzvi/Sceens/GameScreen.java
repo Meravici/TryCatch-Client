@@ -6,7 +6,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.nadzvi.Game.GameWorld;
-import com.nadzvi.Utilities.ScreenPool;
+import com.nadzvi.Utilities.ScreenFactory.ScreenPool;
 
 
 public class GameScreen implements Screen {
@@ -45,7 +45,7 @@ public class GameScreen implements Screen {
 	@Override
 	public void render(float delta) {
 		if(!pause) {
-            Gdx.gl.glClearColor(0, 0, 0, 1);
+            Gdx.gl.glClearColor(1, 1, 1, 1);
             Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
             HUD.act(delta); // update GUI
@@ -64,13 +64,13 @@ public class GameScreen implements Screen {
 
 	@Override
 	public void hide() {
-       pause();
+
 	}
 
 	@Override
 	public void pause() {
         pause = true;
-        ((Game)Gdx.app.getApplicationListener()).setScreen(screenPool.getScreen(ScreenPool.ScreenEnum.PAUSE));
+        ((Game)Gdx.app.getApplicationListener()).setScreen(screenPool.getPauseScreen());
 	}
 
 	@Override

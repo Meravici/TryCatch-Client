@@ -1,9 +1,8 @@
-package com.nadzvi.Game;
+package com.nadzvi.Game.Objects;
 
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.nadzvi.Game.Ball;
-import com.nadzvi.Utilities.AssetsAPI;
+import com.nadzvi.Utilities.assets.AssetsAPI;
 
 public class BallFactory{
 	private World world;

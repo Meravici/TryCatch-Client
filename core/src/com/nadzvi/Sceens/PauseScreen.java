@@ -1,7 +1,7 @@
 package com.nadzvi.Sceens;
 
 import com.badlogic.gdx.Screen;
-import com.nadzvi.Utilities.AssetsAPI;
+import com.nadzvi.Utilities.assets.AssetsAPI;
 
 public class PauseScreen implements Screen {
     private AssetsAPI assets;

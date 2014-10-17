@@ -7,9 +7,9 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.nadzvi.Game.BallFactory;
+import com.nadzvi.Game.Objects.BallFactory;
 import com.nadzvi.Game.GameWorld;
-import com.nadzvi.Game.WallFactory;
+import com.nadzvi.Game.Objects.WallFactory;
 
 public class GravityTestWorld implements GameWorld {
 	private final float UNIT_WIDTH; // 6.4 meters

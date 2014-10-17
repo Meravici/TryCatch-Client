@@ -1,4 +1,4 @@
-package com.nadzvi.Utilities;
+package com.nadzvi.Utilities.assets;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;

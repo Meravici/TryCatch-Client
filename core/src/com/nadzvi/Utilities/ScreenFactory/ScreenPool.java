@@ -1,4 +1,4 @@
-package com.nadzvi.Utilities;
+package com.nadzvi.Utilities.ScreenFactory;
 
 import com.badlogic.gdx.Screen;
 
@@ -14,7 +14,17 @@ public interface ScreenPool{
         SETTINGS,
         ABOUT
     }
-    public Screen getScreen(ScreenEnum id);
+    public Screen getSplashScreen();
+
+    public Screen getMenuScreen();
+
+    public Screen getGameScreen();
+
+    public Screen getPauseScreen();
+
+    public Screen getSettingsScreen();
+
+    public Screen getAboutScreen();
 
     public void addScreen(ScreenEnum id, Screen screen);
 

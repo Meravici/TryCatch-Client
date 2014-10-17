@@ -1,13 +1,13 @@
-package com.nadzvi.Game.GravityTest;
+package com.nadzvi.Game.DontTouchWalls;
 
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.nadzvi.Utilities.assets.AssetsAPI;
 
-public class GravityTestGUI extends Stage {
+public class DontTouchWallsGUI extends Stage {
 
-	public GravityTestGUI(Viewport viewPort, AssetsAPI assets) {
+	public DontTouchWallsGUI(Viewport viewPort, AssetsAPI assets) {
 		super(viewPort);
 		// add GUI actors to stage, labels, meters, buttons etc.
 		Label labelStatus = new Label("TOUCH TO START", assets.getMenuSkin());

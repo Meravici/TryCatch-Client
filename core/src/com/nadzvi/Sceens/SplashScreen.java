@@ -9,8 +9,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.nadzvi.Game.GameHUDFactory;
 import com.nadzvi.Game.GameWorldFactory;
-import com.nadzvi.Utilities.AssetsAPI;
-import com.nadzvi.Utilities.ScreenPool;
+import com.nadzvi.Utilities.assets.AssetsAPI;
+import com.nadzvi.Utilities.ScreenFactory.ScreenPool;
 
 public class SplashScreen implements Screen {
 	private Texture splash;
@@ -39,9 +39,10 @@ public class SplashScreen implements Screen {
 		stage.draw();
 		
 		if(assets.isFinished()){ // check if all files are loaded
-            GameScreen screen = (GameScreen)screenPool.getScreen(ScreenPool.ScreenEnum.GAME);
-            screen.setWorld(GameWorldFactory.create(GameWorldFactory.GameWorldType.GRAVITY_TEST, assets));
-            screen.setHUD(GameHUDFactory.create(GameWorldFactory.GameWorldType.GRAVITY_TEST, assets));
+            GameScreen screen = (GameScreen)screenPool.getGameScreen();
+
+            screen.setWorld(GameWorldFactory.create(GameWorldFactory.GameWorldType.DONT_TOUCH_WALLS, assets));
+            screen.setHUD(GameHUDFactory.create(GameWorldFactory.GameWorldType.DONT_TOUCH_WALLS, assets));
             ((Game)Gdx.app.getApplicationListener()).setScreen(screen);
         }else{
             float progress = assets.getProgress();

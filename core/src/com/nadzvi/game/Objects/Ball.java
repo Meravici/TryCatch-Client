@@ -1,4 +1,4 @@
-package com.nadzvi.Game;
+package com.nadzvi.Game.Objects;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -10,7 +10,8 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Scaling;
-import com.nadzvi.Utilities.AssetsAPI;
+import com.nadzvi.Game.PhysicalActor;
+import com.nadzvi.Utilities.assets.AssetsAPI;
 
 public class Ball extends PhysicalActor {
 	public static enum State {
@@ -24,6 +25,8 @@ public class Ball extends PhysicalActor {
         this.height = RADIUS*2;
         // bob is an Image, so we load the graphics from the asset manager
         Texture tex = assets.getBallTexture();
+
+
         this.setDrawable(new TextureRegionDrawable(new TextureRegion(tex)));
         this.setBounds(0, 0, tex.getWidth(), tex.getHeight());  
         // generate ball's box2d body  

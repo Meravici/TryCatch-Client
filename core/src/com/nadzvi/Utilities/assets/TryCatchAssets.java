@@ -1,9 +1,8 @@
-package com.nadzvi.Utilities;
+package com.nadzvi.Utilities.assets;
 
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.nadzvi.Utilities.AssetsAPI;
 
 public class TryCatchAssets implements AssetsAPI {
 	public AssetManager assetManager;
@@ -11,6 +10,11 @@ public class TryCatchAssets implements AssetsAPI {
     public TryCatchAssets(){
         this.assetManager = new AssetManager();
     }
+
+    public static AssetsAPI buildAssets(){
+        return new TryCatchAssets();
+    }
+
 
     // In here we'll put everything that needs to be loaded in this format:
     // manager.load("file location in assets", fileType.class);
